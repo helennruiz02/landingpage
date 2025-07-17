@@ -1,0 +1,545 @@
+/* Variables de Colores */
+:root {
+    --primary-color: #A0522D; /* Tono terroso, elegante */
+    --secondary-color: #D2B48C; /* Beige claro, sofisticado */
+    --accent-color: #B22222; /* Un toque de rojo oscuro para energía */
+    --text-dark: #333;
+    --text-light: #f4f4f4;
+    --bg-light: #FDF5E6; /* Blanco cremoso */
+    --bg-dark: #2F4F4F; /* Gris oscuro elegante para el footer */
+}
+
+/* Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--bg-light);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 3.5em;
+    color: var(--text-light);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+h2 {
+    font-size: 2.8em;
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--accent-color);
+    border-radius: 5px;
+}
+
+h3 {
+    font-size: 1.8em;
+    color: var(--primary-color);
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--text-light);
+    padding: 12px 25px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.btn:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Header - Hero Section */
+.hero {
+    background: url('../image/fondop.jpg') no-repeat center center/cover; /* Corrected typo and image path */
+    color: var(--text-light);
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Overlay oscuro para mejor legibilidad */
+    z-index: 0; /* Ensures the overlay is behind the text but over the image */
+}
+
+.hero-content {
+    z-index: 1; /* Ensures the text is above the overlay */
+    padding: 20px;
+    max-width: 800px; /* Limit width for better readability on large screens */
+    margin: 0 auto; /* Center the content block itself */
+    text-align: center; /* Explicitly center text within this div */
+}
+
+.hero-content h1 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--bg-dark);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.navbar .container { /* Use .container inside .navbar to control width and centering */
+    display: flex;
+    justify-content: flex-end; /* Align items to the right */
+    align-items: center;
+    padding: 0 20px; /* Adjust padding for the container */
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+.navbar ul li {
+    margin: 0 25px;
+}
+
+.navbar ul li a {
+    color: var(--text-light);
+    font-weight: 600;
+    font-size: 1.1em;
+    padding: 8px 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.navbar ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    left: 50%;
+    bottom: -5px;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    color: var(--secondary-color);
+}
+
+.navbar ul li a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* Sections General */
+.section {
+    padding: 80px 0;
+}
+
+.section:nth-child(even) {
+    background-color: var(--bg-light);
+}
+
+.section:nth-child(odd) {
+    background-color: var(--secondary-color);
+}
+
+/* About Section */
+.about-section {
+    text-align: center;
+}
+
+.mission-vision {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    margin-top: 50px;
+    flex-wrap: wrap;
+}
+
+.mission-vision .card {
+    background-color: var(--bg-light);
+    border: 1px solid var(--secondary-color);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex: 1;
+    min-width: 300px;
+    max-width: 48%;
+}
+
+.mission-vision .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.mission-vision .card h3 {
+    margin-bottom: 15px;
+    color: var(--accent-color);
+}
+
+/* Services Section */
+.services-section {
+    background-color: var(--bg-light);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.service-item {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.service-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.service-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    border-bottom: 4px solid var(--primary-color);
+}
+
+.service-item h3 {
+    margin-top: 20px;
+    padding: 0 15px;
+    color: var(--accent-color);
+}
+
+.service-item p {
+    padding: 0 15px;
+    font-size: 0.95em;
+    color: #555;
+}
+
+/* Contact Section */
+.contact-section {
+    background-color: var(--secondary-color);
+}
+
+.contact-form {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--secondary-color);
+    border-radius: 8px;
+    font-size: 1em;
+    font-family: 'Montserrat', sans-serif;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(178, 34, 34, 0.2);
+    outline: none;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+}
+
+.form-message {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    display: none; /* Hidden by default */
+}
+
+.form-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.form-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* WhatsApp Floating Button */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25D366; /* WhatsApp green */
+    color: white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 100;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+}
+
+.whatsapp-btn img {
+    width: 35px;
+    height: 35px;
+}
+
+/* Footer */
+footer {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.9em;
+}
+
+/* Carrusel Styles */
+.carousel-section {
+    background-color: var(--bg-light); /* Or adjust as needed */
+    padding: 60px 0;
+    text-align: center;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 900px; /* Adjust max-width for your design */
+    margin: 40px auto 20px auto;
+    overflow: hidden; /* Important for sliding effect */
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.carousel-slide {
+    display: flex;
+    width: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 450px; /* Fixed height for consistency */
+    object-fit: cover; /* Cover the area, cropping if necessary */
+    flex-shrink: 0; /* Prevent images from shrinking */
+    border-radius: 10px;
+}
+
+.carousel-nav-dots {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.dot {
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: var(--primary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5em;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar ul li {
+        margin: 10px 0;
+    }
+
+    .mission-vision {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .mission-vision .card {
+        max-width: 90%;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Hero section adjustments for smaller screens */
+    .hero-content h1 {
+        font-size: 2.5em; /* Smaller font size for H1 on tablets and smaller */
+    }
+
+    .hero-content p {
+        font-size: 1.3em; /* Smaller font size for P on tablets and smaller */
+    }
+
+    /* Navbar adjustments for smaller screens */
+    .navbar .container {
+        justify-content: center; /* Center menu items on smaller screens */
+    }
+
+    .carousel-slide img {
+        height: 300px; /* Adjust height for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    .hero-content p {
+        font-size: 1.2em;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+
+    .whatsapp-btn {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .whatsapp-btn img {
+        width: 30px;
+        height: 30px;
+    }
+
+    /* Hero section adjustments for mobile phones */
+    .hero-content h1 {
+        font-size: 2em; /* Even smaller font size for H1 on mobile */
+    }
+
+    .hero-content p {
+        font-size: 1em; /* Even smaller font size for P on mobile */
+    }
+
+    .carousel-slide img {
+        height: 200px; /* Further adjust height for mobile screens */
+    }
+}
